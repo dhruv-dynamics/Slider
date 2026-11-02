@@ -1,0 +1,211 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #1e293b, #0b0f19 80%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* Slider Wrapper */
+.slider-wrapper {
+  width: 100%;
+  max-width: 960px;
+}
+
+/* Main Slider Card (Modern UI Container) */
+.slider {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #020617;
+}
+
+/* Slide Items */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Slide Images */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 4s ease-out;
+}
+
+.slide.active img {
+  transform: scale(1);
+}
+
+/* Modern Gradient Caption Overlay */
+.caption {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px;
+  background: linear-gradient(
+    to top,
+    rgba(2, 6, 23, 0.85) 0%,
+    rgba(2, 6, 23, 0.3) 50%,
+    transparent 100%
+  );
+  color: #ffffff;
+}
+
+.caption .tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  width: fit-content;
+  margin-bottom: 10px;
+}
+
+.caption h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.caption p {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+/* Navigation Buttons (Modern Frosted Glass) */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-btn.prev {
+  left: 20px;
+}
+
+.nav-btn.next {
+  right: 20px;
+}
+
+/* Indicators (Modern Dots) */
+.dots-container {
+  position: absolute;
+  bottom: 24px;
+  right: 40px;
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.dot.active {
+  width: 28px;
+  border-radius: 10px;
+  background: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slider {
+    height: 420px;
+    border-radius: 18px;
+  }
+
+  .caption {
+    padding: 24px;
+  }
+
+  .caption h2 {
+    font-size: 1.5rem;
+  }
+
+  .caption p {
+    font-size: 0.85rem;
+  }
+
+  .nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .nav-btn.prev {
+    left: 12px;
+  }
+
+  .nav-btn.next {
+    right: 12px;
+  }
+
+  .dots-container {
+    right: 24px;
+    bottom: 20px;
+  }
+}
